@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>实时监控</title>
+<link href="libs/css/bootstrap.min.css" rel="stylesheet">
+<script src="libs/js/jquery.min.js"></script>
+<script src="libs/js/bootstrap.min.js"></script>
+<style>
+h1,h2,h3,h4,h5,h6{display:inline-block}
+</style>
+</head>
+<body>
+<div class="container">
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+			<nav class="navbar navbar-default" role="navigation">
+				<div class="navbar-header">
+					 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button> <a class="navbar-brand" href="#">地表水质量监测系统</a>
+				</div>
+				
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav">
+						
+					</ul>
+					
+					<ul class="nav navbar-nav navbar-right">
+						<li>
+							 <a href="index.html">首页</a>
+						</li>
+						<li class="active">
+							 <a href="monitor.html">实时监控</a>
+						</li>
+						<li>
+							 <a href="map.html">地图模式</a>
+						</li>
+						<li>
+							 <a href="analysis.html">数据分析</a>
+						</li>
+						<li>
+							 <a href="news.html">环保新闻</a>
+						</li>
+					</ul>
+				</div>
+				
+			</nav>
+		</div>
+	</div>
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+			<div class="row clearfix">
+				<div class="col-md-12 column">
+					<div class="alert alert-dismissable alert-success">
+				
+						
+						<h3>
+							<button id="changex" class="btn btn-default">切换</button>
+							湘江 实时水质量指数
+						</h3> 
+				
+					</div>
+					
+					<div class="" style="background:#8bbb72">
+						<img src="img/panel1.png">
+					</div>
+					<h4>湘江 各监测点实时数据</h4><a href="">查看信息数据</a>
+					<table class="table">
+						<thead>
+							<tr>
+								<th>
+									监测站点
+								</th>
+								<th>
+									水质指数
+								</th>
+								<th>
+									污染情况
+								</th>
+								<th>
+									首要污染物
+								</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>
+									1
+								</td>
+								<td>
+									TB - Monthly
+								</td>
+								<td>
+									01/04/2012
+								</td>
+								<td>
+									Default
+								</td>
+							</tr>
+							<tr class="success">
+								<td>
+									1
+								</td>
+								<td>
+									TB - Monthly
+								</td>
+								<td>
+									01/04/2012
+								</td>
+								<td>
+									Approved
+								</td>
+							</tr>
+							<tr class="error">
+								<td>
+									2
+								</td>
+								<td>
+									TB - Monthly
+								</td>
+								<td>
+									02/04/2012
+								</td>
+								<td>
+									Declined
+								</td>
+							</tr>
+							<tr class="warning">
+								<td>
+									3
+								</td>
+								<td>
+									TB - Monthly
+								</td>
+								<td>
+									03/04/2012
+								</td>
+								<td>
+									Pending
+								</td>
+							</tr>
+							<tr class="info">
+								<td>
+									4
+								</td>
+								<td>
+									TB - Monthly
+								</td>
+								<td>
+									04/04/2012
+								</td>
+								<td>
+									Call in to confirm
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			
+			<h4>湘江 水质量指数变化趋势</h4>
+			<script src="http://cdn.bootcss.com/echarts/3.4.0/echarts.min.js"></script>
+			<div class="tabbable" id="tabs-666982">
+				<ul class="nav nav-tabs">
+					<li class="active">
+						 <a href="#panel-615459" data-toggle="tab">最近24小时</a>
+					</li>
+					<li>
+						 <a href="#panel-498170" data-toggle="tab">最近30天</a>
+					</li>
+				</ul>
+				<div class="tab-content">
+					<div class="tab-pane active" id="panel-615459">
+						<p>
+							<div id="oneday" style="width: 700px;height:400px;"></div>
+						</p>
+					</div>
+					<div class="tab-pane" id="panel-498170">
+						<p>
+							<div id="onemonth" style="width: 700px;height:400px;"></div>
+						</p>
+					</div>
+				</div>
+			</div>
+			<h4>
+			湖南 相关水质量指数
+			</h4>
+			<br>
+			<span class="label label-default">桃子湖</span>
+			<span class="label label-primary">梅溪湖</span>
+			<span class="label label-success">洞庭湖</span>
+			<span class="label label-info">洞庭湖</span>
+			<span class="label label-warning">洞庭湖</span>
+			<span class="label label-danger">洞庭湖</span>
+				<br><br><br><br>
+				
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('oneday'));
+
+        // 指定图表的配置项和数据
+        var option = {
+		title: {
+			text: ''
+		},
+		tooltip: {
+			trigger: 'axis'
+		},
+		legend: {
+			data:['湘江中游橘子洲','湘江中游月亮岛','湘江上游XXX','湘江上游','湘江下游']
+		},
+		grid: {
+			left: '3%',
+			right: '4%',
+			bottom: '3%',
+			containLabel: true
+		},
+		toolbox: {
+			feature: {
+				saveAsImage: {}
+			}
+		},
+		xAxis: {
+			type: 'category',
+			boundaryGap: false,
+			data: ['00:00','01:00','02:00','03:00','04:00','05:00','06:00']
+		},
+		yAxis: {
+			type: 'value'
+		},
+		series: [
+			{
+				name:'湘江中游橘子洲',
+				type:'line',
+				stack: '总量',
+				data:[120, 132, 101, 134, 90, 230, 210]
+			},
+			{
+				name:'湘江中游月亮岛',
+				type:'line',
+				stack: '总量',
+				data:[220, 182, 191, 234, 290, 330, 310]
+			},
+			{
+				name:'湘江上游XXX',
+				type:'line',
+				stack: '总量',
+				data:[150, 232, 201, 154, 190, 330, 410]
+			},
+			{
+				name:'湘江上游',
+				type:'line',
+				stack: '总量',
+				data:[320, 332, 301, 334, 390, 330, 320]
+			},
+			{
+				name:'湘江下游',
+				type:'line',
+				stack: '总量',
+				data:[820, 932, 901, 934, 1290, 1330, 1320]
+			}
+		]
+	};
+
+
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+		
+		
+		
+		var myChart2 = echarts.init(document.getElementById('onemonth'));
+
+        // 指定图表的配置项和数据
+        var option  = {
+		title: {
+			text: ''
+		},
+		tooltip: {
+			trigger: 'axis'
+		},
+		legend: {
+			data:['湘江中游橘子洲','湘江中游月亮岛','湘江上游XXX','湘江上游','湘江下游']
+		},
+		grid: {
+			left: '3%',
+			right: '4%',
+			bottom: '3%',
+			containLabel: true
+		},
+		toolbox: {
+			feature: {
+				saveAsImage: {}
+			}
+		},
+		xAxis: {
+			type: 'category',
+			boundaryGap: false,
+			data: ['00:00','01:00','02:00','03:00','04:00','05:00','06:00']
+		},
+		yAxis: {
+			type: 'value'
+		},
+		series: [
+			{
+				name:'湘江中游橘子洲',
+				type:'line',
+				stack: '总量',
+				data:[120, 132, 101, 134, 90, 230, 210]
+			},
+			{
+				name:'湘江中游月亮岛',
+				type:'line',
+				stack: '总量',
+				data:[220, 182, 191, 234, 290, 330, 310]
+			},
+			{
+				name:'湘江上游XXX',
+				type:'line',
+				stack: '总量',
+				data:[150, 232, 201, 154, 190, 330, 410]
+			},
+			{
+				name:'湘江上游',
+				type:'line',
+				stack: '总量',
+				data:[320, 332, 301, 334, 390, 330, 320]
+			},
+			{
+				name:'湘江下游',
+				type:'line',
+				stack: '总量',
+				data:[820, 932, 901, 934, 1290, 1330, 1320]
+			}
+		]
+	};
+
+
+        // 使用刚指定的配置项和数据显示图表。
+        myChart2.setOption(option);
+		
+		
+		
+    </script>
+</body>
+</html>
